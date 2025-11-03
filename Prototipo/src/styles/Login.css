@@ -1,0 +1,73 @@
+/* src/styles/Login.css */
+
+/* --- Container da Página de Login --- */
+.login-page-container {
+    /* Centraliza o card na tela */
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Cor de fundo suave (similar ao wireframe de login) */
+    background-color: #f7f9fc; 
+}
+
+/* --- Card do Formulário de Login --- */
+.login-card {
+    /* Estilo visual do card */
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Limita a largura do formulário */
+    text-align: center;
+}
+
+/* --- Título (Title) --- */
+.login-card h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* --- Estilo do Formulário (Form) --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os campos */
+    margin-bottom: 20px;
+}
+
+/* --- Estilo dos Inputs (Email e Senha) --- */
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    border-color: #427fff; /* Cor de foco (azul) */
+    outline: none;
+}
+
+/* --- Estilo do Botão (ButtonNavigate) --- */
+.login-button {
+    /* Estilo do botão Enviar */
+    width: 100%;
+    padding: 14px;
+    background-color: #5b42f9; /* Roxo/Azul forte, similar ao Card/Sidebar */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: #6d58ff;
+}

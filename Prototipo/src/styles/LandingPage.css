@@ -1,0 +1,75 @@
+/* src/styles/LandingPage.css */
+
+/* --- Layout Principal --- */
+.landing-page-container {
+    width: 100vw;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Usa uma posição relativa para que o fundo (imagem) possa ser absoluto */
+    position: relative; 
+    box-sizing: border-box;
+    /* Z-index para garantir que o texto fique acima do fundo */
+    z-index: 1; 
+}
+
+/* --- Fundo com a Imagem (Quadrado no Wireframe) --- */
+.landing-page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Define a cor de fundo temporária ou um gradiente *
+    /* Z-index baixo para ficar atrás do conteúdo */
+    z-index: 0;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/FundoLanding.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow();
+}
+
+
+/* --- Estilo dos Elementos de Conteúdo (Title e Paragraph) --- */
+
+/* Centraliza o texto e garante que ele fique acima da imagem */
+.landing-page-container h1, 
+.landing-page-container p {
+    text-align: center;
+    color: white; /* Use uma cor de texto escura */
+    z-index: 10;
+}
+
+/* Estilo do Título (Title) */
+.landing-page-container h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo do Parágrafo (Paragraph) */
+.landing-page-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Estilo do Botão (ButtonNavigate) */
+/* O ButtonNavigate deve ter a classe do seu sistema (ex: 'primary-button') */
+.landing-page-container button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #333; /* Cor preta conforme o wireframe */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.landing-page-container button:hover {
+    background-color: #555;
+}

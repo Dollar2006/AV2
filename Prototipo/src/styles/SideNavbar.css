@@ -1,0 +1,180 @@
+/* src/styles/SideNavbar.css */
+
+:root {
+    --sidebar-width: 280px;
+    --navbar-height: 60px;
+    /* Ajustes de cor conforme a imagem: */
+    --bg-dark: #3a2e7c;    /* Cor de fundo da Sidebar (Roxo escuro) */
+    --bg-medium: #4a3c8c;  /* Cor de hover/Sair (Roxo de hover) */
+    --line-color: #5d4a99; /* Cor da linha separadora, um roxo intermediário */
+}
+
+/* --- NavBar Superior (Mantido, mas raramente visível na imagem de sidebar) --- */
+.navbar-app {
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: white;
+    padding: 10px 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.logo-app {
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.menu-button-app {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 200;
+}
+
+/* --- Sidebar Principal --- */
+.sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--sidebar-width); 
+    background-color: var(--bg-dark); 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    z-index: 150; 
+    transition: transform 0.3s ease-in-out;  
+    transform: translateX(-100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    box-sizing: border-box;
+    padding-top: 0; /* Remove padding superior do contêiner principal */
+}
+
+/* Classe ATIVA */
+.sidebar-open { 
+    transform: translateX(0%);
+}
+
+.links-container-app {
+    display: flex;
+    flex-direction: column;
+    /* O padding horizontal pode ser maior */
+}
+
+/* ------------------------------------------------------------------ */
+/* NOVO ESTILO: Título/Header da Sidebar (Onde estava 'Dashboard')     */
+/* ------------------------------------------------------------------ */
+.title-component { /* O seu componente <Title> provavelmente precisa desta classe */
+    /* Estilo para simular o 'Aerocode' no topo da imagem */
+    display: flex;
+    align-items: center;
+    padding: 15px 20px; 
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 60px; /* Altura igual ao navbar superior, por simetria */
+}
+
+/* Linha Separadora (A linha horizontal azul escura na imagem) */
+.title-component::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--line-color);
+    position: absolute; /* Para posicionar abaixo do título, pode precisar de um contêiner específico */
+    bottom: 0;
+    left: 0;
+    margin-top: 5px; /* Ajuste o espaçamento se não usar absolute */
+}
+
+/* ------------------------------------------------------------------ */
+/* ESTILO BASE para Links e Botão SAIR                                */
+/* ------------------------------------------------------------------ */
+.nav-link-app,
+.logout-link-app {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 12px 20px; /* Padding ajustado para ser mais compacto */
+    text-decoration: none;
+    color: white;
+    font-size: 1.05rem; /* Fonte um pouco menor e mais uniforme */
+    transition: background-color 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-link-app:hover,
+.logout-link-app:hover {
+    background-color: var(--bg-medium); 
+}
+
+/* ------------------------------------------------------------------ */
+/* NOVO ESTILO: ÍCONES (Nav-Icon-App) - Adicione no seu CSS           */
+/* ------------------------------------------------------------------ */
+.nav-icon-app {
+    width: 24px; /* Tamanho fixo para ícones */
+    height: 24px;
+    margin-right: 15px; /* Espaçamento entre o ícone e o texto */
+    /* Se os ícones forem SVGs ou PNGs monocromáticos, 
+       você pode precisar de filtros CSS para garantir a cor branca. */
+    filter: brightness(0) invert(1); /* Tenta forçar a cor branca para ícones pretos */
+}
+
+
+/* ------------------------------------------------------------------ */
+/* ESTILO ESPECÍFICO para o Botão SAIR                                */
+/* ------------------------------------------------------------------ */
+
+/* Adiciona a linha separadora antes do botão Sair */
+.logout-link-app::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--line-color);
+    position: absolute;
+    top: -2px; /* Posiciona a linha exatamente na borda superior do botão */
+}
+
+/* Contêiner principal para posicionamento do Botão SAIR no fundo */
+.logout-container-wrapper {
+    /* Envolve o ButtonNavigate SAIR para aplicar a linha separadora
+       e garantir que o botão vá para o final do contêiner flex */
+    position: relative; /* Necessário para posicionar o ::before */
+    width: 100%;
+}
+
+.logout-link-app {
+    margin-top: 0; /* Remove a margem extra, a linha separadora basta */
+    /* Remove o background-color: var(--bg-medium) se você não quiser que o 'Sair' 
+       tenha um fundo diferente do resto quando não estiver em hover, 
+       mas na imagem ele parece ter a mesma cor de hover. */
+    background-color: transparent; /* Padrão transparente, apenas hover */
+    /* Adicionando um padding na parte de baixo para simetria visual */
+    padding-bottom: 20px; 
+}
+
+
+/* --- Overlay (Mantido) --- */
+.overlay-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 140; 
+}

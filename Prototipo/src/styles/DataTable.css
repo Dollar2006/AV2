@@ -1,0 +1,295 @@
+/* styles/DataTable.css */
+
+:root {
+    --accent-color: #5352ed; /* Azul forte para botões primários */
+    --secondary-bg: #f0f0f0; /* Fundo cinza para campos read-only */
+    --border-color: #e0e0e0;
+    --text-color: #333;
+}
+
+.data-table-page-layout {
+    padding: 20px 30px;
+}
+
+/* -------------------------------------- */
+/* 1. PageHeader (Title Component) */
+/* -------------------------------------- */
+.page-header-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+/* -------------------------------------- */
+/* 2. ActionToolbar e Botões */
+/* -------------------------------------- */
+/* Container Principal da Toolbar (Busca e Ações) */
+.data-table-toolbar {
+    display: flex;
+    justify-content: space-between; /* Coloca a Busca na esquerda e Ações na direita */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo do Input de Busca */
+.toolbar-search-input {
+    width: 350px; /* Largura padrão */
+    padding: 10px 15px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.toolbar-search-input:focus {
+    border-color: var(--accent-color, #5352ed);
+    outline: none;
+}
+
+/* Container dos Botões de Ação */
+.toolbar-actions {
+    display: flex;
+    gap: 10px; /* Espaçamento entre Exportar e Novo Item */
+    align-items: center;
+}
+
+/* Estilo dos Botões (Já devem ser definidos pelo ActionButton, mas garantimos o visual) */
+.toolbar-export-button,
+.toolbar-new-button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    height: auto;
+}
+
+/* -------------------------------------- */
+/* 3. DataTableDisplayCard (Tabela) */
+/* -------------------------------------- */
+.data-table-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.item-list-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 20px 0;
+}
+
+.table-header-row, 
+.table-data-row {
+    display: flex;
+    text-align: left;
+}
+
+.table-header-row {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #666;
+}
+
+.table-header-col,
+.table-data-col {
+    padding-right: 10px;
+    min-width: 0;
+}
+
+.table-data-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #f7f7f7; 
+    color: var(--text-color);
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 40px 0;
+    color: #999;
+    font-style: italic;
+    width: 100%;
+}
+
+
+/* -------------------------------------- */
+/* 4. Modal e Formulário */
+/* -------------------------------------- */
+
+/* O Backdrop é o fundo escuro que cobre toda a tela */
+.modal-backdrop {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fundo semi-transparente (40% de opacidade) */
+    background-color: rgba(0, 0, 0, 0.4); 
+    
+    /* Centralização usando Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+/* O Conteúdo é o Card Principal do Formulário */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px; /* Cantos arredondados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    width: 90%; 
+    max-width: 500px; /* Largura ideal para formulários modais */
+    
+    /* Garante que o conteúdo apareça imediatamente */
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* -------------------------------------- */
+/* 5. Estilos Internos do Modal */
+/* -------------------------------------- */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px; /* Espaço abaixo do header */
+    border-bottom: none; /* Sem linha divisória */
+    padding-bottom: 0; 
+}
+
+.modal-header h2 {
+    font-size: 1.6rem; 
+    font-weight: 600; /* Semi-negrito para o título */
+    color: #333; 
+}
+
+/* Botão de Fechar ('x') */
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem; 
+    cursor: pointer;
+    color: #888; 
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close-button:hover {
+    color: #555; 
+}
+
+/* Container dos Campos do Formulário */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento vertical entre os inputs (conforme o design) */
+}
+
+/* Estilo para o CustomInput dentro do Modal */
+.custom-input-group label {
+    font-weight: 600; /* Labels mais fortes */
+    color: #555; 
+    margin-bottom: 8px; /* Espaço abaixo da label */
+    display: block; 
+    font-size: 0.95rem;
+}
+
+.custom-input-group input,
+.custom-input-group textarea { 
+    width: 100%;
+    padding: 12px 15px; /* Padding interno generoso */
+    border: 1px solid #e0e0e0; /* Borda sutil */
+    border-radius: 8px; /* Cantos arredondados nos inputs */
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #fcfcfc; /* Fundo levemente off-white */
+}
+
+.custom-input-group input:focus,
+.custom-input-group textarea:focus {
+    /* Cor de Foco Roxo (para combinar com o design que estava sendo usado antes) */
+    border-color: #5b42f9; 
+    box-shadow: 0 0 0 3px rgba(91, 66, 249, 0.2); 
+    outline: none;
+}
+
+.custom-input-group textarea {
+    min-height: 100px; /* Altura mínima para a descrição (conforme a imagem) */
+    resize: vertical; 
+}
+
+/* Estilo para o Botão de Submit do Modal */
+.modal-actions {
+    margin-top: 10px; /* Pequeno espaçamento adicional */
+}
+
+.modal-submit-button {
+    /* Roxo/Azul do botão principal */
+    background-color: #5b42f9; 
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600; 
+    width: 100%; /* Botão que preenche a largura do modal */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-submit-button:hover {
+    background-color: #6d58ff; 
+}
+
+/* --- Estilos para os Botões de Ação da Linha (Editar/Apagar) --- */
+
+.row-actions-group {
+    display: flex;
+    gap: 8px; /* Espaço entre os botões */
+}
+
+.action-edit-button,
+.action-delete-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 5px 8px; /* Padding menor */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+    height: 30px; /* Altura fixa */
+    width: 30px; /* Largura fixa para manter o quadrado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo do Botão Editar (Azul/Roxo) */
+.action-edit-button {
+    color: var(--accent-color); /* Cor do botão principal */
+    border-color: var(--accent-color);
+}
+
+.action-edit-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Estilo do Botão Apagar (Vermelho, para perigo) */
+.action-delete-button {
+    color: #f44336; /* Vermelho */
+    border-color: #f44336;
+}
+
+.action-delete-button:hover {
+    background-color: #f44336;
+    color: white;
+}

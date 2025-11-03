@@ -1,0 +1,101 @@
+/* DashboardHome.css */
+
+/* Removido o margin-left/right fixo para melhor centralização */
+.dashboard-layout{
+    margin: 0 30px;
+}
+
+/* -------------------------------------- */
+/* LAYOUT DOS CARDS (3 COLUNAS)           */
+/* -------------------------------------- */
+.card-container{
+    /* Removendo margens fixas e usando um layout responsivo de Grid */
+    margin: 30px 0; /* Espaçamento vertical */
+    max-width: 100%;
+    
+    /* CHAVE: Usando CSS Grid para 3 colunas iguais e gap */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de largura fracionária */
+    gap: 20px;
+}
+
+/* -------------------------------------- */
+/* ESTILO BASE DO CARD (ButtonNavigate)   */
+/* -------------------------------------- */
+.dashboard-card { /* Esta é a classe do ButtonNavigate */
+    width: 100%; /* Ocupa 100% da coluna do Grid */
+    height: 180px; /* Altura ajustada */
+    
+    /* Design do Card */
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    
+    /* Configuração Flex para o CONTEÚDO DENTRO do card */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhamento à esquerda */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+/* Efeito de Hover */
+.dashboard-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-2px);
+}
+
+/* -------------------------------------- */
+/* ESTILO DO ÍCONE E SEU WRAPPER          */
+/* -------------------------------------- */
+
+.card-icon-wrapper {
+    /* CHAVE: Quadrado de fundo colorido */
+    width: 48px;
+    height: 48px;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    margin-bottom: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon { /* A tag <img> dentro do wrapper */
+    /* Garante que o ícone interno seja branco/claro */
+    width: 24px;
+    height: 24px;
+    /* Transforma o ícone (assumindo que ele é preto) em branco */
+    filter: brightness(0) invert(1); 
+}
+
+/* -------------------------------------- */
+/* ESTILO DO TEXTO                        */
+/* -------------------------------------- */
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 600; /* Mais negrito */
+    color: #333; /* Cor mais escura para o título */
+    margin: 0 0 5px 0;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #666; /* Cor mais clara para a descrição */
+    margin: 0;
+}
+
+/* -------------------------------------- */
+/* ESTILOS ADICIONAIS DE CONTEÚDO         */
+/* -------------------------------------- */
+
+.dashboard-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}

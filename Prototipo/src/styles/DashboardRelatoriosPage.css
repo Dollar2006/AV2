@@ -1,0 +1,96 @@
+/* src/styles/DashboardRelatoriosPage.css */
+
+/* O 'dashboard-layout' e 'dashboard-content' já devem estar definidos globalmente (ou no DashboardHome.css) */
+
+.relatorios-content {
+    /* Garante que o conteúdo comece após a sidebar (se for o layout principal) */
+    padding: 20px;
+    background-color: #f7f9fc; /* Fundo suave */
+}
+
+/* --- 1. Header de Filtros e Ações --- */
+.relatorio-actions-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.relatorio-select,
+.relatorio-search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    height: 40px; /* Altura padronizada */
+}
+
+.relatorio-select {
+    width: 200px; /* Largura para o campo de seleção */
+}
+
+.relatorio-search-input {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    max-width: 300px;
+}
+
+.relatorio-action-button {
+    /* Estilo do botão 'button+' do wireframe */
+    background-color: #333; /* Cor preta */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.relatorio-action-button:hover {
+    background-color: #555;
+}
+
+
+/* --- 2. Card de Exibição do Relatório --- */
+.relatorio-display-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.relatorio-list-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Layout dos Dados (Imitando a tabela do wireframe) */
+.relatorio-header-row,
+.relatorio-data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.relatorio-header-row {
+    font-weight: bold;
+    color: #666;
+    border-bottom: 2px solid #ccc;
+}
+
+.relatorio-column-header,
+.relatorio-column-data {
+    /* Distribuição das 5 colunas */
+    flex: 1; 
+    text-align: left;
+    padding-right: 15px; 
+}
+
+.relatorio-footer-note {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #999;
+}
